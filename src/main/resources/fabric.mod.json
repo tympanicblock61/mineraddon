@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "id": "addon-template",
+  "id": "mineraddon",
   "version": "${version}",
-  "name": "Addon Template",
-  "description": "An addon template for Meteor Client addons.",
+  "name": "Miner Addon",
+  "description": "A Meteor Addon for mining game.",
   "authors": [
-    "seasnail"
+    "Tympanicblock61"
   ],
   "contact": {
-    "repo": "https://github.com/MeteorDevelopment/meteor-addon-template"
+    "repo": "https://github.com/tympanicblock61/mineraddon"
   },
-  "icon": "assets/template/icon.png",
+  "icon": "assets/miner/icon.png",
   "environment": "client",
   "entrypoints": {
     "meteor": [
-      "com.example.addon.AddonTemplate"
+      "com.tympanic.mineraddon.AddonTemplate"
     ]
   },
   "mixins": [
-    "addon-template.mixins.json"
+    "mineraddon.mixins.json"
   ],
   "custom": {
     "meteor-client:color": "225,25,25"

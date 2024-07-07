@@ -1,5 +1,5 @@
 plugins {
-    id "fabric-loom" version "1.6-SNAPSHOT"
+    id "fabric-loom" version "1.7-SNAPSHOT"
 }
 
 base {
@@ -17,6 +17,17 @@ repositories {
         name = "Meteor Dev Snapshots"
         url = "https://maven.meteordev.org/snapshots"
     }
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+def addDependencyWithFallback(dependencyAdder, primaryDependency, fallbackDependency) {
+    try {
+        dependencyAdder(primaryDependency)
+    } catch (Exception ignored) {
+        dependencyAdder(files("libs/${fallbackDependency}"))
+    }
 }
 
 dependencies {
@@ -25,8 +36,24 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
+    // optional dependencies
+    addDependencyWithFallback(
+        { dependency -> modCompileOnly(dependency) },
+        "meteordevelopment:voyager:${project.voyager_version}",
+        "voyager-${project.voyager_version}.jar"
+    )
+    addDependencyWithFallback(
+        { dependency -> modCompileOnly(dependency) },
+        "meteordevelopment:baritone:${project.baritone_version}",
+        "baritone-${project.baritone_version}.jar"
+    )
+
     // Meteor
-    modImplementation "meteordevelopment:meteor-client:${project.meteor_version}"
+    addDependencyWithFallback(
+        { dependency -> modImplementation(dependency) },
+        "meteordevelopment:meteor-client:${project.meteor_version}",
+        "meteor-client-${project.meteor_version}.jar"
+    )
 }
 
 tasks {

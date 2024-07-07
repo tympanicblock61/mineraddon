@@ -1,6 +1,6 @@
-package com.example.addon.hud;
+package com.tympanic.mineraddon.hud;
 
-import com.example.addon.AddonTemplate;
+import com.tympanic.mineraddon.AddonTemplate;
 import meteordevelopment.meteorclient.systems.hud.HudElement;
 import meteordevelopment.meteorclient.systems.hud.HudElementInfo;
 import meteordevelopment.meteorclient.systems.hud.HudRenderer;

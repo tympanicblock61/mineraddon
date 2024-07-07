@@ -1,6 +1,6 @@
-package com.example.addon.mixin;
+package com.tympanic.mineraddon.mixin;
 
-import com.example.addon.AddonTemplate;
+import com.tympanic.mineraddon.AddonTemplate;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.RunArgs;
 import org.spongepowered.asm.mixin.Mixin;
